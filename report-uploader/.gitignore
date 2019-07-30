@@ -1,0 +1,5 @@
+.vagrant
+*.exe
+reports
+uploads
+keys

@@ -1,0 +1,146 @@
+## DONE
+- FIX: Error when trying to view test details of "The test will fail and should still get a report When I throw an assertion" (firefox) - "Cannot read property location of undefined"
+- Browserlogs: Higher resolution of timestamps
+- Label tests with a final result after processing tags
+- Well known Tags: When test is tagged as @failing don't show it in "failed recently"
+- BUG: ATDD does not work on http://veve-dev-test-01.intern.v.check24.de:4000/details?ownerkey=13pDFPwGG79KiBjvvrDOGi27fQk&project=%23All&id=5b71724da2fe0f8acbf34c11&hashcategory=3757672417
+- Well known Tags: @ATDD:<storyid>:<lineno>: Hide ATDD tests from "failed recently" as long as the test fails on the specified line in the test
+- Make report API_URL configurable
+- Should hava a @fixit wellknown tag
+- Test Details: Show full date in history popovers
+- Test Error: Show breadcrumb path of error (test -> page obj -> action)
+- Add @bug tag support
+- Link to test details using hash category to always get latest test result when refreshing the page
+- For screenshots use their actual width as max-width
+- Fix full height two column view
+- AlertService: Grep for tests
+- Fix ATDD wireframe test
+- Fix scrollTo bottom of source view
+- ReportImporter: Run database cleanup every day
+- TestStatus: Link to report
+- TestStatus: Show date
+- TestStatus: Show TOC
+- TestStatus: Fix reportId
+- Extract data part from test title
+- TestStatus: Sort
+- TestStatus: Show status for integration and production
+- TestStatus: Show tags
+- TestStatus: Jump to feature when clicking on it in toc
+- TestStatus: Capitalize feature names
+- TestStatus: Fix sidebar to page
+- Console Log: Make normal errors orange, detect 5xx errors and make them red
+
+## In Progress
+
+- ReportImporter: Add last result to test status
+- TestStatus: Show failing features in TOC
+- TestStatus: Show status per device
+- TestStatus: Project name must be removed from path
+- TestStatus: Show feature success/failure status in toc
+- TestStatus: Make TOC scrollable
+- TestStatus: First prefix element should be removed since it is the project name
+- TestStatus: BUG test status for certain tests is not updated anymore (5ba0151982d05e0001147787)
+
+## Backlog V 2.1
+
+- Tags: Add support for link tag
+- TestStatus: Wenn going to page with browser back, scroll to previous position on page
+- TestStatus: Show when the last test was run/when was the status report updated (could also link to the last "Test Run")
+- Browser console logs: Should highlight errors "with a status of 5xx"
+- TestStatus: Show path prefix on feature boxes
+- Show relative time on source snippets/screenshots
+- Errors: Would be nice to see how often the same error occurred previously in the current test
+- TestStatus: Filter by environment
+- Test Status: Have a sticky table of contents with the categories and the feature
+- report-service: handle error (return http status code) when report does not exist
+- TestStatus: Simple search for test title and tags
+- TestStatus: Remove last prefix element (since it is the file name (more like scenario name))
+- Detect links in error messages
+- ATDD Tag: Add ATDDFailed when test fails on other line
+- AlertService: Group by device
+- AlertService: Trigger hipchat notifications
+- Bring back the step outline view
+- Create codeceptjs error parser in order to create better error messages (e.g including detailed help texts what went wrong and how to fix)
+- Average test duration (across all tests in a project) would be a nice metric
+- BUG: Screenshot diff: Screenshot compare must also drill down into stack
+- Cleanup Process: Should keep all the errors (up to some point in time) and any previous success
+
+## Backlog
+
+- Could try react-json-view for data annotations
+- Source View: Better syntax highlighting (mute awaits and comments, highlight codecept methods)
+- Collapse multiple story tags into one dropdown
+- Test Details: Bring back the screenshot gallery view
+- Performance logs: Mark cached requests
+- IDEA: Error analysis view which shows all errors and which tests are affected
+- Could have a @recovered tag for tests which are now successful again after a previous failure
+- Test Details: Show all errors in annotated source view
+- Performance logs: Mark cached resources and more (see https://nicj.net/resourcetiming-in-practice/)
+- Extend build to build frontend for different backend hosts
+- TestError: Show failed line of test
+- ava-codeceptjs: Try long stacktraces
+- Error View: Provide link to last error of same type on same device
+- IDEA Add forward/backward buttons to quickly navigate between screenshots
+- Report list: Filter by device
+- Report list: Filter by prefix
+- Testrun history: Navigate quicker through the test history
+- Testrun history: See better where in the history I am
+- Last source commit: Actually would like to see last change of the test file
+- Test details: Should have an indication about the test status on other devices
+- IDEA Use prefix title as filter for tests/navigation
+- IDEA Detect broken image links
+- Source View: Could use this https://bitbucket.check24.de/s/-1746010450/ca3ded2/1/1.0/_/download/resources/com.atlassian.bitbucket.server.bitbucket-web:skipped-container/torn-edge.png to mark hidden text fragments
+- Diff View: Should also diff line in source since that might be the cause for the failure
+- CHORE Switch to https://github.com/conorhastings/react-syntax-highlighter
+- details: when test failed: Provide a link to the last successful run
+- IDEA Group data driven tests: Actually it's always the same test just with variations
+- IDEA Add a mini-thumbnail bar (filmstrip) to quickly navigate between screenshots
+- Improve Source Code View: COllapse areas without annotations
+- Should see the step outline from the list view
+- PRB There might be a stacktrace without a test stackframe (see "When I login with city missing Then I see my data in best sso view")
+- report details: Show list of tracking requests made during test run
+- report not showing ALL reports (http://veve-dev-test-01.intern.v.check24.de:4000/tests?ownerkey=sIzM3ZEHRb&project=%23All)
+- codeceptjs: report not grouping same test in different projects correctly
+- report details: Show time of last successful test
+- Detail View: Filter by device
+- Enhance alerting: Dont send alert if last test run has been successful
+- Enhance alerting: Add all failing tests to report
+- Enhance alerting: Show times of all test failures
+- Enable users to put tests into quarantine
+- ava-codeceptjs: If click is used with two parameters, then use waitForText instead of waitForVisible
+- ava-codeceptjs: Tag each test run with a unique identifier
+- ava-codeceptjs: Automatically retry test on a (different?) device
+- ava-codeceptjs: Tag tests as integration test
+- Show last errors on other devices
+- Show last change date of test files
+- Make mongodb query more efficient
+- Cleanup report database regularly
+- Mark known failures (use screenshot hashid)
+- Show compact source code snippet as <line in test> -> <line in page object>
+- Link to test details using hashcategory
+- Filter by environment
+- Filter by device
+- exclude known problems from failures (ESOCKETTIMEOUT)
+- Improve report file cleanup (keep last successful and all errors)
+- Mark same error as current in previous failures
+- Refresh page automatically
+- Ability to hide/quarantine failing tests (also do automatically after X failures)
+- Show more info about the test in success/failure bars popover
+- Rerun failing tests
+- Looks like deployment info is not always reliable (some deployments are not showing up)
+- Add label to deployment bars
+- Detail View: Merge browser logs into screenshot timeline?
+- NEW Show also released tickets/stories in timeline
+- Add a hash id for errors
+- Display if test is known to fail with this error
+- Group tests by time (just now, recently, some time ago)
+- FEAT Filter tests by device
+- Show last update of test project
+- Add failure rate per test
+- Show test status per device in tree view
+- FEAT Provide an overview of available screenshots in s source code view
+- Fade out "old" tests (where the last run is old and the test has been renamed or deleted)
+- Compare steps of failed run with previous successful run
+- IDEA Create a notification application which also works on the report data
+- Improve error messages by adding the failed step + args to the error message (e. g. element not visible [but which element?])
+- Fix scrollbars (hat mit den popovers zu tun)

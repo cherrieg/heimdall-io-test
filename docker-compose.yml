@@ -1,0 +1,82 @@
+version: '3'
+services:
+  report-app:
+    restart: always
+    image: hubidu27/report-app:latest
+    ports:
+      - 4000:4000
+    links:
+      - report-service
+    environment:
+      - REPORT_SERVICE_HOST=0.0.0.0
+      - DEPLOYMENT_SERVICE_HOST=0.0.0.0
+    volumes:
+      - /data/e2e-reports:/opt/app/reports
+
+  report-importer:
+    restart: always
+    image: hubidu27/report-importer:latest
+    links:
+      - mongodb
+    volumes:
+      - /data/e2e-reports:/go/src/app/reports
+
+  report-uploader:
+    restart: always
+    image: hubidu27/report-uploader:latest
+    ports:
+      - 8003:8000
+    links:
+      - mongodb
+    volumes:
+      - /data/e2e-reports:/go/src/app/reports
+      
+  report-service:
+    restart: always
+    image: hubidu27/report-service:latest
+    ports:
+      - 8001:8000
+    links:
+      - mongodb
+    volumes:
+      - /data/e2e-reports:/go/src/app/reports
+
+  deployment-service:
+    restart: always
+    image: hubidu27/deployment-service:latest
+    ports:
+      - 8002:8000
+    links:
+      - mongodb
+    environment:
+      - NOTIFICATION_RECIPIENTS=${NOTIFICATION_RECIPIENTS}
+      - HIPCHAT_URL=${HIPCHAT_URL}
+      - HIPCHAT_API_TOKEN=${HIPCHAT_API_TOKEN}
+    volumes:
+      - /etc/ssl/certs:/etc/ssl/certs
+
+  alert-service:
+    restart: always
+    image: hubidu27/alert-service:latest
+    links:
+      - report-service
+    environment:
+      - JOB_INTERVAL=30
+      - SMTP_HOST=0.0.0.0
+      - SMTP_PORT=25
+      - ALERT_FROM=${ALERT_FROM}
+      - ALERT_RECIPIENTS=${ALERT_RECIPIENTS}
+      - ALERT_OWNERKEYS=${ALERT_OWNERKEYS}
+      - BAMBOO_HOST=0.0.0.0
+      - BAMBOO_USER=${BAMBOO_USER}
+      - BAMBOO_PASSWORD=${BAMBOO_PASSWORD}
+
+  mongodb:
+    restart: always
+    image: mongo:3.6.4
+    command: mongod --smallfiles --quiet --logpath=/dev/null
+    ports:
+      - 27017:27017
+    volumes:
+      - /data/db:/data/db
+      - /data/configdb:/data/configdb
