@@ -13,6 +13,6 @@ ADD . /opt/app
 
 RUN npm run build
 
-EXPOSE 4000
+EXPOSE 8008
 
 CMD ["npm", "start"]

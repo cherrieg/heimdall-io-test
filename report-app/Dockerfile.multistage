@@ -19,7 +19,7 @@ FROM mhart/alpine-node:base
 WORKDIR /app
 COPY --from=builder /opt/app .
 
-EXPOSE 4000
+EXPOSE 8008
 
 ENV NODE_ENV production
 CMD ["node", "server.js"]
