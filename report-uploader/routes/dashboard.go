@@ -14,7 +14,7 @@ func CreateUrl(c *gin.Context) {
 	runid := c.Param("runid")
 	hostWithoutPort := strings.Replace(c.Request.Host, ":8003", "", -1)
 
-	url := fmt.Sprintf("http://%s:4000/tests?ownerkey=%s&project=%s&runid=%s", hostWithoutPort, ownerkey, project, runid)
+	url := fmt.Sprintf("http://%s:8008/tests?ownerkey=%s&project=%s&runid=%s", hostWithoutPort, ownerkey, project, runid)
 
 	c.JSON(http.StatusOK, gin.H{
 		"Url": url,

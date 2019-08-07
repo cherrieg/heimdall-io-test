@@ -4,7 +4,7 @@ services:
     restart: always
     image: hubidu27/report-app:latest
     ports:
-      - 4000:4000
+      - 8008:8008
     links:
       - report-service
     environment:
