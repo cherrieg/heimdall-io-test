@@ -14,8 +14,8 @@ app.prepare()
     return handle(req, res)
   })
 
-  server.listen(8008, (err) => {
+  server.listen(4000, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:8008')
+    console.log('> Ready on http://localhost:4000')
   })
 })
