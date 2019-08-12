@@ -12,7 +12,8 @@ type SMTPConfig struct {
 
 func NewSMTPConfig() *SMTPConfig {
 	port, _ := strconv.Atoi(os.Getenv("SMTP_PORT"))
-	config := SMTPConfig{Host: os.Getenv("SMTP_HOST"), Port: port}
+	// config := SMTPConfig{Host: os.Getenv("SMTP_HOST"), Port: port}
+	config := SMTPConfig{Host: "sjqaqatmui02", Port: port}
 
 	return &config
 }
