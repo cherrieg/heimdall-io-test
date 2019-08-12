@@ -6,7 +6,8 @@ export default async () => {
     if (!config.DeploymentServiceHost) {
         return [];
     }
-    const res = await fetch(`http://${config.DeploymentServiceHost}/deployments`)
+    // const res = await fetch(`http://${config.DeploymentServiceHost}/deployments`)
+    const res = await fetch(`http://sjqaqatmui02/deployments`)
     const json = await res.json() || []
 
     const addSortKey = item => Object.assign(item, { SortKey: item.FinishedAt})

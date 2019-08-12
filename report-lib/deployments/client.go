@@ -82,7 +82,8 @@ func selectSuccessfulProduction(deployments []Deployment) (ret []GenericDeployme
 }
 
 func GetRecentBambooDeployments() []GenericDeployment {
-	bambooHost := os.Getenv("BAMBOO_HOST")
+	// bambooHost := os.Getenv("BAMBOO_HOST")
+	bambooHost := "sjqaqatmui02"
 	bambooUser := os.Getenv("BAMBOO_USER")
 	bambooPassword := os.Getenv("BAMBOO_PASSWORD")
 
@@ -92,7 +93,8 @@ func GetRecentBambooDeployments() []GenericDeployment {
 
 	client := &http.Client{Transport: tr}
 
-	req, err := http.NewRequest("GET", "https://"+bambooHost+"/rest/api/latest/deploy/dashboard", nil)
+	// req, err := http.NewRequest("GET", "https://"+bambooHost+"/rest/api/latest/deploy/dashboard", nil)
+	req, err := http.NewRequest("GET", "https://sjqaqatmui02/rest/api/latest/deploy/dashboard", nil)
 
 	req.SetBasicAuth(bambooUser, bambooPassword)
 	rs, err := client.Do(req)

@@ -49,7 +49,8 @@ func SendAlert(recipients []string, newAlerts []model.Report, fixedAlerts []mode
 
 	// TODO Cleanup the screenshot files
 
-	d := gomail.NewDialer(smtpConfig.Host, smtpConfig.Port, "", "")
+	// d := gomail.NewDialer(smtpConfig.Host, smtpConfig.Port, "", "")
+	d := gomail.NewDialer("sjqaqatmui02", smtpConfig.Port, "", "")
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Send the email to Bob, Cora and Dan.

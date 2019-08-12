@@ -19,7 +19,8 @@ func DownloadScreenshot(testPath string, screenshot string) DownloadedScreenshot
 	pathEncoded := b64.StdEncoding.EncodeToString([]byte(url.PathEscape(testPath)))
 	screenshotEncoded := b64.StdEncoding.EncodeToString([]byte(url.PathEscape(screenshot)))
 
-	downloadURL := fmt.Sprintf("%s/screenshots/%s/%s", config.ReportServiceHost, pathEncoded, screenshotEncoded)
+	// downloadURL := fmt.Sprintf("%s/screenshots/%s/%s", config.ReportServiceHost, pathEncoded, screenshotEncoded)
+	downloadURL := fmt.Sprintf("%s/screenshots/%s/%s", "sjqaqatmui02", pathEncoded, screenshotEncoded)
 	resty.SetOutputDirectory("/tmp")
 	resty.R().SetOutput(screenshot).Get(downloadURL)
 
