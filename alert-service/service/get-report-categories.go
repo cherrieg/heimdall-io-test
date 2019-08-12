@@ -8,8 +8,8 @@ import (
 )
 
 func GetReportCategories() (*resty.Response, error) {
-	config := config.NewServiceConfig()
+	// config := config.NewServiceConfig()
 	// return resty.R().Get(fmt.Sprintf("%s/report-categories", config.ReportServiceHost))
-	return resty.R().Get(fmt.Sprintf("http://sjqaqatmui02:8001/report-categories", config.ReportServiceHost))
+	return resty.R().Get(fmt.Sprintf("%s/report-categories", "sjqaqatmui02"))
 	// return resty.R().Get("http://veve-dev-test-01.intern.v.check24.de:8001/report-categories")
 }
