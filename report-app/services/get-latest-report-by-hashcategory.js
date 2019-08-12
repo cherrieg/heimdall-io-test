@@ -9,7 +9,7 @@ export default async (hashCategory) => {
     console.error('Expected to get a hashcategory')
     return {}
   }
-  const url = `http://${config.ReportServiceHost}/report-categories/${hashCategory}?latest=true`
+  const url = `http://sjqaqatmui02:8001/report-categories/${hashCategory}?latest=true`
   const res = await fetch(url)
   const json = await res.json()
 

@@ -12,7 +12,7 @@ export default class HtmlSourcePage extends React.Component {
 
     const filename = 'error-page.html'
     const path = report.ReportDir
-    const docUrl = `http://${config.ReportServiceHost}/attachments/${base64.encode(encodeURIComponent(path))}/${base64.encode(encodeURIComponent(filename))}`.toString()
+    const docUrl = `http://sjqaqatmui02:8001/attachments/${base64.encode(encodeURIComponent(path))}/${base64.encode(encodeURIComponent(filename))}`.toString()
     return {
       docUrl,
     }

@@ -3,7 +3,7 @@ import config from './config'
 
 import processTags from './tag-processor'
 
-const buildUrl = (opts = {}) => `http://${config.ReportServiceHost}/report-categories?limit=400&ownerkey=${opts.ownerkey}&project=${opts.project || ''}&runid=${opts.runid || ''}`
+const buildUrl = (opts = {}) => `http://sjqaqatmui02:8001/report-categories?limit=400&ownerkey=${opts.ownerkey}&project=${opts.project || ''}&runid=${opts.runid || ''}`
 
 const isFailedTest = testCategory => testCategory.LastReport.Result === 'error'
 
