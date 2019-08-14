@@ -2,7 +2,7 @@ version: '3'
 services:
   report-app:
     restart: always
-    image: hubidu27/report-app:latest
+    image: heimdalliotest_report-app_1
     ports:
       - 4000:4000
     links:
