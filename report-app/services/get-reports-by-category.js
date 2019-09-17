@@ -20,7 +20,6 @@ export default async (hashCategory, params = {}) => {
   const url = `http://sjqaqatmui02:8001/report-categories/${hashCategory}?${serialize(actualParams)}`
   console.log("Cherrie Debug - get report url : " + url)
   const res = await fetch(url)
-  alert(res)
   const json = await res.json()
   return json
 }
