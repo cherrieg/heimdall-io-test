@@ -35,7 +35,7 @@ export default class extends React.Component {
 
     let report = id !== undefined ?
       await getReportById(id)
-      : await getLatestReportByHashcategory(hashcategory)
+      : await getLatestReportByHashcategory(hashcategory,ownerkey, project)
 
     const [source, browserlogs, performanceLogs] = await Promise.all([
       await getTestSource(report.ReportDir),
