@@ -63,6 +63,7 @@ export default class extends React.Component {
       await getReportsByCategory(this.props.report.HashCategory, {
         limit,
         since: this.props.report.StartedAt,
+        project: this.props.project,
         ownerkey: this.props.ownerkey
       })
     if (!historicReports) {
