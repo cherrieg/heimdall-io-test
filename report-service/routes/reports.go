@@ -78,6 +78,7 @@ func GetReportsByCategory(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
 
 	hashcategory, _ := strconv.Atoi(c.Param("hashcategory"))
+	project, _ := strconv.Atoi(c.Param("project"))
 
 	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "200"))
 	since, _ := strconv.Atoi(c.DefaultQuery("since", "0"))
@@ -86,6 +87,7 @@ func GetReportsByCategory(c *gin.Context) {
 	var reports []model.Report
 	query := buildQuery(c)
 	query["hashcategory"] = hashcategory
+	query["project"] = project
 	if since > 0 {
 		query["startedat"] = bson.M{
 			"$lt": since,
