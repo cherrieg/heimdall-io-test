@@ -43,6 +43,7 @@ func main() {
 
 	r.GET("/reports", reports.List)
 	r.GET("/reports/:_id", reports.Get)
+	r.GET("/projects/:ownerkey", projects.GetByOwnerkey)
 	r.GET("/report-categories", reports.GetReportCategories)
 	r.GET("/report-categories/:hashcategory", reports.GetReportsByCategory)
 
@@ -51,7 +52,7 @@ func main() {
 
 	r.GET("/attachments/:path/:file", attachments.GetAttachment)
 
-	r.GET("/projects/:ownerkey", projects.GetByOwnerkey)
+	//r.GET("/projects/:ownerkey", projects.GetByOwnerkey)
 	r.POST("/projects/:ownerkey/:project/delete", projects.DeleteByOwnerkey)
 
 	r.Run("0.0.0.0:8000")
